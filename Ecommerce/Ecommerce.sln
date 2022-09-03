@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce", "Ecommerce\Ecommerce.csproj", "{62C9DF3D-D64D-489F-90B0-53947A16348C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{2943B535-2AB3-42F5-AEDE-E311D50109B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{AB46708B-A466-4458-9DAE-C224789E0965}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62C9DF3D-D64D-489F-90B0-53947A16348C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C9DF3D-D64D-489F-90B0-53947A16348C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C9DF3D-D64D-489F-90B0-53947A16348C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C9DF3D-D64D-489F-90B0-53947A16348C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2943B535-2AB3-42F5-AEDE-E311D50109B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2943B535-2AB3-42F5-AEDE-E311D50109B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2943B535-2AB3-42F5-AEDE-E311D50109B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2943B535-2AB3-42F5-AEDE-E311D50109B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB46708B-A466-4458-9DAE-C224789E0965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB46708B-A466-4458-9DAE-C224789E0965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB46708B-A466-4458-9DAE-C224789E0965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB46708B-A466-4458-9DAE-C224789E0965}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AAE8AFD0-ED67-452A-9EA7-94E47BF4CDB8}
+	EndGlobalSection
+EndGlobal

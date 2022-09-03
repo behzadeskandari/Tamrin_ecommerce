@@ -1,0 +1,32 @@
+header{
+  img{
+    width:100%;
+  }
+}
+
+.bg-custom{
+  background-color:rgb(12, 13, 14);
+}
+
+nav {
+  margin:0px;
+  padding:0px;
+  ul {
+    li {
+      a{
+        color: #62666d;
+        // font-weight: 500;
+      }
+      &:hover{
+        border-bottom: 2px solid red;
+        transition: ease-in cubic-bezier(0.215, 0.610, 0.355, 1) ease-in-out;
+      }
+    }
+    li:nth-child(5){
+      border-bottom: 0px solid transparent;
+    }
+    li:nth-child(6){
+      border-bottom: 0px solid transparent;
+    }
+  }
+}
