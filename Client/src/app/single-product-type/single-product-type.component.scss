@@ -10,7 +10,11 @@
     text-decoration: none;
     cursor: pointer;
   }
-
+  .csfont{
+    font-size: 13px;
+    text-align: center;
+    padding-top: 10px;
+  }
 
 }
 .cs-bg{
@@ -34,4 +38,8 @@
   img{
     width: 100%;
   }
+
+}
+.text-center:nth-child(6){
+  margin:7px;
 }

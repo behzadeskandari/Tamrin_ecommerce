@@ -1,5 +1,6 @@
 ﻿using Core.Entities;
 using Core.Interface;
+using Ecommerce.DTO;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,25 +17,19 @@ namespace Api.Controllers
     {
         private readonly IProductRepository _repo;
 
-        //private readonly StoreDbContext _storeDbContext;
-        //private readonly StoreDbContextSeed storeDbContextSeed;
         public ProductController(IProductRepository repo)
         {
             _repo = repo;
         }
-        //public ProductController(StoreDbContext storeDbContext)
-        //{
-        //    _storeDbContext = storeDbContext;
-        //    //this.storeDbContextSeed = storeDbContextSeed;
-        //}
+       
 
-        [HttpGet("Seed")]
-        public void Seed()
-        {
-            //StoreDbContextSeed storeDbContext = new StoreDbContextSeed(_storeDbContext);
-            //storeDbContext.SeedAsync();
-            _repo.Seed();
-        }
+        //[HttpGet("Seed")]
+        //public void Seed()
+        //{
+        //    //StoreDbContextSeed storeDbContext = new StoreDbContextSeed(_storeDbContext);
+        //    //storeDbContext.SeedAsync();
+        //    _repo.Seed();
+        //}
 
         [HttpGet]
         public async Task<ActionResult<List<Product>>> Get()
@@ -42,6 +37,10 @@ namespace Api.Controllers
             try
             {
                 var products = await _repo.getProductsAsync();
+                if(products == null)
+                {
+                    return NotFound("Not Found");
+                }
                 return Ok(products);
             }
             catch (System.Exception ex)
@@ -52,11 +51,40 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<List<Product>>> GetProduct(int id)
         {
-            return await _repo.getProductById(id);
+           var product = await _repo.getProductById(id);
+            if (product == null)
+            {
+                return NotFound("Not Found");
+            }
+            return Ok(product);
         }
 
+        [HttpGet]
+        [Route("type/{id}")]
+        public async Task<ActionResult<Product>> getProductsByTypeIdAsync(int id)
+        {
+            var ProductValue = await _repo.getProductsByTypeIdAsync(id);
+            if (ProductValue == null)
+            {
+                return NotFound("Not Found");
+            }
+            return Ok(ProductValue);
+        }
+
+
+        [HttpGet]
+        [Route("brand/{id}")]
+        public async Task<ActionResult<Product>> getProductsByBrandIdAsync(int id)
+        {
+            var ProductValue = await _repo.getProductsByBrandIdAsync(id);
+            if (ProductValue == null)
+            {
+                return NotFound("Not Found");
+            }
+            return Ok(ProductValue);
+        }
     }
 }
 

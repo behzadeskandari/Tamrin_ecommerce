@@ -7,19 +7,36 @@ header{
 .bg-custom{
   background-color:rgb(12, 13, 14);
 }
-
+.hiddenBtn{
+  display:none;
+  width: 100%;
+  text-align: right;
+  background-color:rgb(49, 49, 50);
+  span{
+    cursor: pointer;
+  }
+}
 nav {
   margin:0px;
   padding:0px;
+
   ul {
     li {
       a{
         color: #62666d;
+        font-size: 14px;
+        line-height: 2;
         // font-weight: 500;
+      }
+      .cs-link{
+        color:red;
       }
       &:hover{
         border-bottom: 2px solid red;
         transition: ease-in cubic-bezier(0.215, 0.610, 0.355, 1) ease-in-out;
+      }
+      button {
+        font-size: 14px;
       }
     }
     li:nth-child(5){
@@ -29,4 +46,42 @@ nav {
       border-bottom: 0px solid transparent;
     }
   }
+}
+
+@media screen and (max-width: 374px) {
+  header{
+    display: none;
+  }
+  .bg-custom{
+    background-color:rgb(49, 49, 50);
+  }
+  .hiddenBtn{
+    display:block;
+    position: absolute;
+    z-index: 25;
+    padding: 10px;
+    .fa-window-close{
+      color:white;
+    }
+  }
+  nav {
+    padding-top: 2em;
+
+    ul {
+      display: flex;
+      flex-flow: column;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+@media screen and (max-width: 784px) {
+  header{
+    a{
+      img{
+        height:2em;
+      }
+    }
+  }
+
 }

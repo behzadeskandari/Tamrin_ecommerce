@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BrandtypeService } from '../services/brandtype.service';
 
 @Component({
   selector: 'app-brand-type',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./brand-type.component.scss']
 })
 export class BrandTypeComponent implements OnInit {
-
-  constructor() { }
+  BrandType: any;
+  constructor(private BrandTypeservice: BrandtypeService) { }
 
   ngOnInit(): void {
+    this.onPageLoadGetBrandTypeData();
+  }
+
+  onPageLoadGetBrandTypeData() {
+    this.BrandTypeservice.getBrandType().subscribe((response) => {
+      this.BrandType = response;
+      console.log(this.BrandType,'this.product')
+    }, (error) => {
+      console.log(error);
+    })
   }
 
 }

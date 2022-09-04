@@ -17,12 +17,16 @@ namespace Ecommerce.Controllers
             _productTypeRepo = productTypeRepo;
         }
 
-        [HttpGet(Name ="GetProductType")]
+        [HttpGet]
         public async Task<ActionResult<List<ProductType>>> Get()
         {
             try
             {
                 var products = await _productTypeRepo.getProductTypeAsync();
+                if (products == null)
+                {
+                    return NotFound("Products Not Found");
+                }
                 return Ok(products);
             }
             catch (System.Exception ex)

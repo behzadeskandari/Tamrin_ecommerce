@@ -17,9 +17,9 @@ namespace Infrastructure.Data.Repository
         {
             _storeDbContext = storeDbContext;
         }
-        public async Task<Product> getProductById(int id)
+        public async Task<List<Product>> getProductById(int id)
         {
-             var productHolder = await _storeDbContext.Products.Include(p => p.ProductType).Include(p => p.ProductBrand).FirstOrDefaultAsync(x => x.Id == id);
+             var productHolder = await _storeDbContext.Products.Include(p => p.ProductType).Include(p => p.ProductBrand).Where(x => x.Id == id).ToListAsync();  //.FindAsync(id)  //.Include(p => p.ProductType).Include(p => p.ProductBrand);
             return productHolder;
         }
 
@@ -30,6 +30,29 @@ namespace Infrastructure.Data.Repository
             return await _storeDbContext.Products.Include(p => p.ProductType).Include(p => p.ProductBrand).ToListAsync();
         }
 
+        public async Task<IReadOnlyList<Product>> getProductsByTypeIdAsync(int id)
+        {
+            var valueHolder = await _storeDbContext.Products
+                                    .Include(p => p.ProductType)
+                                    .Include(p => p.ProductBrand)
+                                    .Where(x => x.ProductType.Id == id)
+                                    .ToListAsync();
+
+            return valueHolder;
+        }
+
+
+
+        public async Task<IReadOnlyList<Product>> getProductsByBrandIdAsync(int id)
+        {
+            var valueHolder = await _storeDbContext.Products
+                                    .Include(p => p.ProductType)
+                                    .Include(p => p.ProductBrand)
+                                    .Where(x => x.ProductBrand.Id == id)
+                                    .ToListAsync();
+
+            return valueHolder;
+        }
 
 
         public void Seed()

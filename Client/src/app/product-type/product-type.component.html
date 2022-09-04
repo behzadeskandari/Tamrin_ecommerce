@@ -1,1 +1,9 @@
-<p>product-type works!</p>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let item of ProductType" class="col-sm-12 col-md-4 text-center my-5 d-flex flex-column">
+      <span>({{item.id}})</span>
+      <span>{{item.name}}</span>
+    </div>
+  </div>
+</div>
+

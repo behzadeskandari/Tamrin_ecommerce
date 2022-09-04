@@ -9,10 +9,13 @@ namespace Core.Interface
 {
     public interface IProductRepository
     {
-        Task<Product> getProductById(int id);
+        Task<List<Product>> getProductById(int id);
 
         Task<IReadOnlyList<Product>> getProductsAsync();
 
+        Task<IReadOnlyList<Product>> getProductsByTypeIdAsync(int id);
+
+        Task<IReadOnlyList<Product>> getProductsByBrandIdAsync(int id);
         void Seed();
     }
 }

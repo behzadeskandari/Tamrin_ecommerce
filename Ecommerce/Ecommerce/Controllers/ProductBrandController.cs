@@ -23,6 +23,10 @@ namespace Ecommerce.Controllers
             try
             {
                 var products = await _productBrandRepo.getProductBrandAsync();
+                if (products == null)
+                {
+                    return NotFound("Products Not Found");
+                }
                 return Ok(products);
             }
             catch (System.Exception ex)
